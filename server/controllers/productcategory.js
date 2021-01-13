@@ -1,10 +1,10 @@
 // OAuth Service
 const OAuthService = require('../services/oauthservice.js');
-const oAuthServiceInstance = new OAuthService();
+const _oAuthServiceInstance = new OAuthService();
 
 //Utility
-const GlobalUtility = require('../utils/globalutility.js');
-const utilInstance = new GlobalUtility();
+const GlobalUtility = require('peters-globallib');
+const _utilInstance = new GlobalUtility();
 
 // Multer
 const multer = require('multer');
@@ -19,7 +19,7 @@ async function productCategory( req, res ){
     var joResult;
     var errors = null;
 
-    var oAuthResult = await oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
 
     if( oAuthResult.status_code == "00" ){
         if( oAuthResult.data.status_code == "00" ){
@@ -33,10 +33,11 @@ async function productCategory( req, res ){
                     res.status(200).send(joResult);
                 }else{
         
-                    let joValidateFile = await utilInstance.imageFilter( req.files.photo );
+                    let joValidateFile = await _utilInstance.imageFilter( req.files.photo );
                     if( joValidateFile.status_code == "00" ){
                         let uploadedPhoto = req.files.photo;
-                        uploadedPhoto.mv(config.uploadPath.productCategory + uploadedPhoto.name);
+                        let xNewFileName = ( await __utilInstance.generateRandomFileName('ProductCategoryPhoto','')) + path.extname(uploadedPhoto.name);
+                        uploadedPhoto.mv(config.uploadPath.productCategory + xNewFileName);
         
                         joResult = {
                             status: true,

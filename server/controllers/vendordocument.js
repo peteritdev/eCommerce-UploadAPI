@@ -1,6 +1,6 @@
 // OAuth Service
 const OAuthService = require('../services/oauthservice.js');
-const oAuthServiceInstance = new OAuthService();
+const _oAuthServiceInstance = new OAuthService();
 
 //Utility
 const GlobalUtility = require('peters-globallib');
@@ -22,7 +22,7 @@ async function uploadSIUP( req, res ){
     var joResult;
     var errors = null;
 
-    var oAuthResult = await oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
 
     if( oAuthResult.status_code == "00" ){
         if( oAuthResult.data.status_code == "00" ){
@@ -95,7 +95,7 @@ async function uploadNPWP( req, res ){
     var joResult;
     var errors = null;
 
-    var oAuthResult = await oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
 
     if( oAuthResult.status_code == "00" ){
         if( oAuthResult.data.status_code == "00" ){
@@ -162,7 +162,7 @@ async function uploadDomisili( req, res ){
     var joResult;
     var errors = null;
 
-    var oAuthResult = await oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
 
     if( oAuthResult.status_code == "00" ){
         if( oAuthResult.data.status_code == "00" ){
@@ -229,7 +229,7 @@ async function uploadTDP( req, res ){
     var joResult;
     var errors = null;
 
-    var oAuthResult = await oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
 
     if( oAuthResult.status_code == "00" ){
         if( oAuthResult.data.status_code == "00" ){
@@ -296,7 +296,7 @@ async function uploadAkta( req, res ){
     var joResult;
     var errors = null;
 
-    var oAuthResult = await oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
 
     if( oAuthResult.status_code == "00" ){
         if( oAuthResult.data.status_code == "00" ){
