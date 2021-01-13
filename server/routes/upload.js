@@ -2,8 +2,10 @@ const productCategoryController = require('../controllers').productCategory;
 const productController = require('../controllers').product;
 const vendorController = require('../controllers').vendor;
 const vendorDocumentController = require('../controllers').vendorDocument;
+const vendorCatalogueController = require('../controllers').vendorCatalogue;
 
 var rootAPIPath = '/api/procurement/v1/upload/';
+var rootAPIDownloadPath = '/api/procurement/v1/download/';
 
 module.exports = (app) => {
     app.get(rootAPIPath, (req, res) => res.status(200).send({
@@ -22,5 +24,9 @@ module.exports = (app) => {
     app.post( rootAPIPath + 'vendor/domisili', vendorDocumentController.uploadDomisili);
     app.post( rootAPIPath + 'vendor/tdp', vendorDocumentController.uploadTDP);
     app.post( rootAPIPath + 'vendor/akta', vendorDocumentController.uploadAkta);
+
+    // Vendor Catalogue
+    app.post( rootAPIPath + 'vendor_catalogue/brochure', vendorCatalogueController.uploadBrochure );
+    app.get( rootAPIDownloadPath + 'vendor_catalogue/brochure/:file_name', vendorCatalogueController.downloadBrochure );
     
 }

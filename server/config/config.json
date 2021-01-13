@@ -66,7 +66,8 @@
       "npwp": "../uploads/vendor/npwp/",
       "domisili": "../uploads/vendor/domisili/",
       "tdp": "../uploads/vendor/tdp/",
-      "akta": "../uploads/vendor/akta/"
+      "akta": "../uploads/vendor/akta/",
+      "catalogueBrochure": "../uploads/vendor_catalogue/"
     }
   },
 
