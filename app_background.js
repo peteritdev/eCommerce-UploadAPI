@@ -2,7 +2,6 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const cors = require('cors');
 const _ = require('lodash');
 const fileUpload = require('express-fileupload');
 
