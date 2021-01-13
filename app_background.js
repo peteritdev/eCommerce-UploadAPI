@@ -2,8 +2,18 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const cors = require('cors');
+const _ = require('lodash');
+const fileUpload = require('express-fileupload');
 
 const app = express();
+
+app.use(fileUpload({
+  /*useTempFiles: true,
+  tempFileDir: "C:\\___PETER___\\PROJECT\\SanQuaProcurement\\UploadWebService\\temp\\",*/
+  debug: true
+}));
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
