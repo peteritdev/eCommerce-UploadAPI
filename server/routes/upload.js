@@ -28,5 +28,9 @@ module.exports = (app) => {
     // Vendor Catalogue
     app.post( rootAPIPath + 'vendor_catalogue/brochure', vendorCatalogueController.uploadBrochure );
     app.get( rootAPIDownloadPath + 'vendor_catalogue/brochure/:file_name', vendorCatalogueController.downloadBrochure );
+
+    // Vendor Quotation
+    app.post( rootAPIPath + 'vendor_quotation/file', vendorDocumentController.uploadQuotation );
+    app.get( rootAPIDownloadPath + 'vendor_quotation/file/:file_name', vendorDocumentController.downloadQuotation );
     
 }

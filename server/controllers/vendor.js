@@ -41,7 +41,7 @@ async function logo( req, res ){
                     let joValidateFile = await _utilInstance.imageFilter( uploadedPhoto );
                     if( joValidateFile.status_code == "00" ){
 
-                        let xNewFileName = ( await __utilInstance.generateRandomFileName('Vendor','')) + path.extname(uploadedPhoto.name);
+                        let xNewFileName = ( await _utilInstance.generateRandomFileName('Vendor','')) + path.extname(uploadedPhoto.name);
                         uploadedPhoto.mv( xUploadPath + xNewFileName);
         
                         joResult = {
