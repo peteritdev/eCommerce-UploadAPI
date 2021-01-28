@@ -1,7 +1,7 @@
-// const { networkInterfaces } = require('os');
-// const nets = networkInterfaces();
+const ip = require('ip');
 
-const config = require('../config/config.json');
+const config_local = require('../config/config.json');
+const config_dev = require('../config/config_dev.json');
 
 // OAuth Service
 const OAuthService = require('../services/oauthservice.js');
@@ -22,9 +22,7 @@ async function product( req, res ){
     var joResult;
     var errors = null;
 
-    // var networkInterfaces = os.networkInterfaces();
-    // var arr = networkInterfaces['Local Area Connection 3']
-    // var ip = arr[1].address
+    console.log('>>> IP : ' + ip.address());
 
     var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
 

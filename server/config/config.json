@@ -5,7 +5,7 @@
     "database": "sanqua_procurementdb",
     "host": "127.0.0.1",
     "port":5432,
-    "dialect": "postgres",
+    "dialect": "postgres",  
     "dialectOptions": {
       "dateStrings": true,
       "typeCast": true
