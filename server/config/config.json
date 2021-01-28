@@ -55,7 +55,7 @@
 
   "uploadPath": {
     "productCategory": "../uploads/product_categories/",
-    "product_1": "../uploads/products/photo_1/",
+    "product_1": "../uploads/products/photo_1/",    
     "product_2": "../uploads/products/photo_2/",
     "product_3": "../uploads/products/photo_3/",
     "product_4": "../uploads/products/photo_4/",
@@ -69,6 +69,9 @@
       "akta": "../uploads/vendor/akta/",
       "catalogueBrochure": "../uploads/vendor_catalogue/",
       "quotation": "../uploads/vendor_quotation/"
+    },
+    "eSanqua": {
+      "repository": "../uploads/esanqua/repository/"
     }
   },
 
