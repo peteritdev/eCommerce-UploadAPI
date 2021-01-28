@@ -1,5 +1,5 @@
-const { networkInterfaces } = require('os');
-const nets = networkInterfaces();
+// const { networkInterfaces } = require('os');
+// const nets = networkInterfaces();
 
 const config = require('../config/config.json');
 
@@ -22,9 +22,9 @@ async function product( req, res ){
     var joResult;
     var errors = null;
 
-    var networkInterfaces = os.networkInterfaces();
-    var arr = networkInterfaces['Local Area Connection 3']
-    var ip = arr[1].address
+    // var networkInterfaces = os.networkInterfaces();
+    // var arr = networkInterfaces['Local Area Connection 3']
+    // var ip = arr[1].address
 
     var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
 
