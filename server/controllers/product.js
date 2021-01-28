@@ -1,7 +1,8 @@
 const ip = require('ip');
 
-const config_local = require('../config/config.json');
-const config_dev = require('../config/config_dev.json');
+const env         = process.env.NODE_ENV || 'development';
+const config      = require(__dirname + '/../config/config.json')[env];
+// const config = require('../config/config.json');
 
 // OAuth Service
 const OAuthService = require('../services/oauthservice.js');
@@ -16,7 +17,11 @@ const multer = require('multer');
 const path = require('path');
 const { oauth2 } = require('googleapis/build/src/apis/oauth2');
 
-module.exports = {product};
+module.exports = {product, getPath};
+
+async function getPath(req, res){
+    console.log( ">>> Config : " + config.uploadPath.product_1 );
+}
 
 async function product( req, res ){
     var joResult;

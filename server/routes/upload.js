@@ -32,5 +32,7 @@ module.exports = (app) => {
     // Vendor Quotation
     app.post( rootAPIPath + 'vendor_quotation/file', vendorDocumentController.uploadQuotation );
     app.get( rootAPIDownloadPath + 'vendor_quotation/file/:file_name', vendorDocumentController.downloadQuotation );
+
+    app.get( rootAPIPath + 'getPath', productController.getPath );
     
 }

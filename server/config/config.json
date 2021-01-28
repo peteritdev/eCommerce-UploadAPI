@@ -10,8 +10,66 @@
       "dateStrings": true,
       "typeCast": true
     },
-    "timezone": "Asia/Jakarta"
-  },  
+    "timezone": "Asia/Jakarta",
+
+    "uploadPath": {
+      "productCategory": "../uploads/product_categories/",
+      "product_1": "../uploads/products/photo_1/",    
+      "product_2": "../uploads/products/photo_2/",
+      "product_3": "../uploads/products/photo_3/",
+      "product_4": "../uploads/products/photo_4/",
+      "product_5": "../uploads/products/photo_5/",
+      "vendor":{
+        "logo":"../uploads/vendor/logo/",
+        "siup": "../uploads/vendor/siup/",
+        "npwp": "../uploads/vendor/npwp/",
+        "domisili": "../uploads/vendor/domisili/",
+        "tdp": "../uploads/vendor/tdp/",
+        "akta": "../uploads/vendor/akta/",
+        "catalogueBrochure": "../uploads/vendor_catalogue/",
+        "quotation": "../uploads/vendor_quotation/"
+      },
+      "eSanqua": {
+        "repository": "../uploads/esanqua/repository/"
+      }
+    }
+  },
+  
+  "production": {
+    "username": "postgres",
+    "password": "P455uu0rd^^ok",
+    "database": "sanqua_procurementdb",
+    "host": "127.0.0.1",
+    "port":5432,
+    "dialect": "postgres",  
+    "dialectOptions": {
+      "dateStrings": true,
+      "typeCast": true
+    },
+    "timezone": "Asia/Jakarta",
+
+    "uploadPath": {
+      "productCategory": "/opt/SanQuaApplication/SanQuaUploadDir/product_categories/",
+      "product_1": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_1/",    
+      "product_2": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_2/",
+      "product_3": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_3/",
+      "product_4": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_4/",
+      "product_5": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_5/",
+      "vendor":{
+        "logo":"/opt/SanQuaApplication/SanQuaUploadDir/vendor/logo/",
+        "siup": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/siup/",
+        "npwp": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/npwp/",
+        "domisili": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/domisili/",
+        "tdp": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/tdp/",
+        "akta": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/akta/",
+        "catalogueBrochure": "/opt/SanQuaApplication/SanQuaUploadDir/vendor_catalogue/",
+        "quotation": "/opt/SanQuaApplication/SanQuaUploadDir/vendor_quotation/"
+      },
+      "eSanqua": {
+        "repository": "/opt/SanQuaApplication/SanQuaUploadDir/esanqua/repository/"
+      }
+    }
+  },
   
   "token_expire":"7",
   "token_expire_unit":"day",
@@ -51,29 +109,7 @@
         "urlVerifyToken": "https://oauth2.googleapis.com/tokeninfo?access_token="
       }
     }
-  },
-
-  "uploadPath": {
-    "productCategory": "../uploads/product_categories/",
-    "product_1": "../uploads/products/photo_1/",    
-    "product_2": "../uploads/products/photo_2/",
-    "product_3": "../uploads/products/photo_3/",
-    "product_4": "../uploads/products/photo_4/",
-    "product_5": "../uploads/products/photo_5/",
-    "vendor":{
-      "logo":"../uploads/vendor/logo/",
-      "siup": "../uploads/vendor/siup/",
-      "npwp": "../uploads/vendor/npwp/",
-      "domisili": "../uploads/vendor/domisili/",
-      "tdp": "../uploads/vendor/tdp/",
-      "akta": "../uploads/vendor/akta/",
-      "catalogueBrochure": "../uploads/vendor_catalogue/",
-      "quotation": "../uploads/vendor_quotation/"
-    },
-    "eSanqua": {
-      "repository": "../uploads/esanqua/repository/"
-    }
-  },
+  },    
 
   "dialectOptions": {
     "useUTC": false,
