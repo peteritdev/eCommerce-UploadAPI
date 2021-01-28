@@ -29,8 +29,6 @@ async function product( req, res ){
     var joResult;
     var errors = null;
 
-    console.log('>>> IP : ' + ip.address());
-
     var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );
 
     if( oAuthResult.status_code == "00" ){

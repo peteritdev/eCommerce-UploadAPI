@@ -49,24 +49,24 @@
     "timezone": "Asia/Jakarta",
 
     "uploadPath": {
-      "productCategory": "/opt/SanQuaApplication/SanQuaUploadDir/product_categories/",
-      "product_1": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_1/",    
-      "product_2": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_2/",
-      "product_3": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_3/",
-      "product_4": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_4/",
-      "product_5": "/opt/SanQuaApplication/SanQuaUploadDir/products/photo_5/",
+      "productCategory": "/var/www/sanqua-upload-dir.com/public_html/product_categories/",
+      "product_1": "/var/www/sanqua-upload-dir.com/public_html/products/photo_1/",    
+      "product_2": "/var/www/sanqua-upload-dir.com/public_html/products/photo_2/",
+      "product_3": "/var/www/sanqua-upload-dir.com/public_html/products/photo_3/",
+      "product_4": "/var/www/sanqua-upload-dir.com/public_html/products/photo_4/",
+      "product_5": "/var/www/sanqua-upload-dir.com/public_html/products/photo_5/",
       "vendor":{
-        "logo":"/opt/SanQuaApplication/SanQuaUploadDir/vendor/logo/",
-        "siup": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/siup/",
-        "npwp": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/npwp/",
-        "domisili": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/domisili/",
-        "tdp": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/tdp/",
-        "akta": "/opt/SanQuaApplication/SanQuaUploadDir/vendor/akta/",
-        "catalogueBrochure": "/opt/SanQuaApplication/SanQuaUploadDir/vendor_catalogue/",
-        "quotation": "/opt/SanQuaApplication/SanQuaUploadDir/vendor_quotation/"
+        "logo":"/var/www/sanqua-upload-dir.com/public_html/vendor/logo/",
+        "siup": "/var/www/sanqua-upload-dir.com/public_html/vendor/siup/",
+        "npwp": "/var/www/sanqua-upload-dir.com/public_html/vendor/npwp/",
+        "domisili": "/var/www/sanqua-upload-dir.com/public_html/vendor/domisili/",
+        "tdp": "/var/www/sanqua-upload-dir.com/public_html/vendor/tdp/",
+        "akta": "/var/www/sanqua-upload-dir.com/public_html/vendor/akta/",
+        "catalogueBrochure": "/var/www/sanqua-upload-dir.com/public_html/vendor_catalogue/",
+        "quotation": "/var/www/sanqua-upload-dir.com/public_html/vendor_quotation/"
       },
       "eSanqua": {
-        "repository": "/opt/SanQuaApplication/SanQuaUploadDir/esanqua/repository/"
+        "repository": "/var/www/sanqua-upload-dir.com/public_html/esanqua/repository/"
       }
     }
   },
