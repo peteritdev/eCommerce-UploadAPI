@@ -21,7 +21,7 @@ module.exports = {product, getPath};
 
 async function getPath(req, res){
 
-    console.log(">>> process.env.NODE_ENV : " + process.env.NODE_ENV);
+    console.log(">>> process.env.NODE_ENV : " + env);
     console.log( ">>> Config : " + config.uploadPath.product_1 );
 }
 
