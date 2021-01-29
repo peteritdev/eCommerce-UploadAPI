@@ -11,7 +11,8 @@ const multer = require('multer');
 const path = require('path');
 const { oauth2 } = require('googleapis/build/src/apis/oauth2');
 
-const config = require('../config/config.json');
+const env         = process.env.NODE_ENV || 'development';
+const config      = require(__dirname + '/../config/config.json')[env];
 
 module.exports = {productCategory};
 
