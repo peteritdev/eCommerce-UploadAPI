@@ -33,7 +33,7 @@ async function downloadBrochure( req, res ){
                 var xDirectoryPath = path.resolve(config.uploadPath.vendor.catalogueBrochure + req.params.file_name);
                 res.download( xDirectoryPath, req.params.file_name, (err) => {
                     if( err ){
-                        res.status(500).send({
+                        res.status(500).send({  
                             message: "Could not download the file. " + err,
                         });
                     }
