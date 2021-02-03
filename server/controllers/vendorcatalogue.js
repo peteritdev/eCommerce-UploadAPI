@@ -23,10 +23,10 @@ async function downloadBrochure( req, res ){
     var joResult;
     var errors = null;
 
-    // var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
 
-    // if( oAuthResult.status_code == "00" ){
-    //     if( oAuthResult.data.status_code == "00" ){
+    if( oAuthResult.status_code == "00" ){
+        if( oAuthResult.data.status_code == "00" ){
 
             try{
                 var xDirectoryPath = path.resolve(config.uploadPath.vendor.catalogueBrochure + req.params.file_name);
@@ -45,19 +45,19 @@ async function downloadBrochure( req, res ){
                 res.status(500).send(joResult);
             }
 
-        // }else{
-        //     console.log(JSON.stringify(oAuthResult));
-        //     joResult = {
-        //         status: false,
-        //         message: "Error 4: " + oAuthResult.data.err_msg.name
-        //     };
-        //     res.status(500).send(joResult);
-        // }
+        }else{
+            console.log(JSON.stringify(oAuthResult));
+            joResult = {
+                status: false,
+                message: "Error 4: " + oAuthResult.data.err_msg.name
+            };
+            res.status(500).send(joResult);
+        }
 
-    // }else{
-    //     joResult = JSON.stringify(oAuthResult);
-    //     res.status(500).send(joResult);
-    // }
+    }else{
+        joResult = JSON.stringify(oAuthResult);
+        res.status(500).send(joResult);
+    }
 }
 
 async function uploadBrochure( req, res ){
