@@ -29,6 +29,7 @@ async function downloadBrochure( req, res ){
         if( oAuthResult.data.status_code == "00" ){
 
             try{
+                console.log(">>> File Path : " + config.uploadPath.vendor.catalogueBrochure);
                 var xDirectoryPath = path.resolve(config.uploadPath.vendor.catalogueBrochure + req.params.file_name);
                 res.download( xDirectoryPath, req.params.file_name, (err) => {
                     if( err ){
