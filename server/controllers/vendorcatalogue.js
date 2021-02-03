@@ -23,7 +23,7 @@ async function downloadBrochure( req, res ){
     var joResult;
     var errors = null;
 
-    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
+    // var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
 
     // if( oAuthResult.status_code == "00" ){
     //     if( oAuthResult.data.status_code == "00" ){
