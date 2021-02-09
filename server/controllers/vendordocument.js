@@ -17,7 +17,7 @@ const { oauth2 } = require('googleapis/build/src/apis/oauth2');
 const env         = process.env.NODE_ENV || 'development';
 const config      = require(__dirname + '/../config/config.json')[env];
 
-module.exports = { uploadSIUP, uploadNPWP, uploadDomisili, uploadTDP, uploadAkta, uploadQuotation, downloadQuotation }
+module.exports = { uploadSIUP, downloadSIUP, uploadNPWP, downloadNPWP, uploadDomisili, downloadDomisili, uploadTDP, downloadTDP, uploadAkta, downloadAkta, uploadQuotation, downloadQuotation }
 
 async function uploadSIUP( req, res ){
     var joResult;
@@ -92,6 +92,47 @@ async function uploadSIUP( req, res ){
     }
 }
 
+async function downloadSIUP( req, res ){
+    var joResult;
+    var errors = null;
+
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
+
+    if( oAuthResult.status_code == "00" ){
+        if( oAuthResult.data.status_code == "00" ){
+
+            try{
+                var xDirectoryPath = path.resolve(config.uploadPath.vendor.siup + req.params.file_name);
+                res.download( xDirectoryPath, req.params.file_name, (err) => {
+                    if( err ){
+                        res.status(500).send({
+                            message: "Could not download the file. " + err,
+                        });
+                    }
+                } )
+            }catch( e ){
+                joResult = {
+                    status: false,
+                    message: "Error download file: " + e
+                };
+                res.status(500).send(joResult);
+            }
+
+        }else{
+            console.log(JSON.stringify(oAuthResult));
+            joResult = {
+                status: false,
+                message: "Error 4: " + oAuthResult.data.err_msg.name
+            };
+            res.status(500).send(joResult);
+        }
+
+    }else{
+        joResult = JSON.stringify(oAuthResult);
+        res.status(500).send(joResult);
+    }
+}
+
 async function uploadNPWP( req, res ){
     var joResult;
     var errors = null;
@@ -115,7 +156,7 @@ async function uploadNPWP( req, res ){
                         let uploadedPhoto = req.files.file;
                         var xFileExt = path.extname(uploadedPhoto.name);
                         var xNewFileName = await _utilInstance.generateRandomFileName('npwp','') + xFileExt;
-                        uploadedPhoto.mv(config.uploadPath.vendor.siup + xNewFileName);
+                        uploadedPhoto.mv(config.uploadPath.vendor.npwp + xNewFileName);
         
                         joResult = {
                             status: true,
@@ -149,6 +190,47 @@ async function uploadNPWP( req, res ){
             joResult = {
                 status: false,
                 message: "Error: " + oAuthResult.data.err_msg.name
+            };
+            res.status(500).send(joResult);
+        }
+
+    }else{
+        joResult = JSON.stringify(oAuthResult);
+        res.status(500).send(joResult);
+    }
+}
+
+async function downloadNPWP( req, res ){
+    var joResult;
+    var errors = null;
+
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
+
+    if( oAuthResult.status_code == "00" ){
+        if( oAuthResult.data.status_code == "00" ){
+
+            try{
+                var xDirectoryPath = path.resolve(config.uploadPath.vendor.npwp + req.params.file_name);
+                res.download( xDirectoryPath, req.params.file_name, (err) => {
+                    if( err ){
+                        res.status(500).send({
+                            message: "Could not download the file. " + err,
+                        });
+                    }
+                } )
+            }catch( e ){
+                joResult = {
+                    status: false,
+                    message: "Error download file: " + e
+                };
+                res.status(500).send(joResult);
+            }
+
+        }else{
+            console.log(JSON.stringify(oAuthResult));
+            joResult = {
+                status: false,
+                message: "Error 4: " + oAuthResult.data.err_msg.name
             };
             res.status(500).send(joResult);
         }
@@ -182,7 +264,7 @@ async function uploadDomisili( req, res ){
                         let uploadedPhoto = req.files.file;
                         var xFileExt = path.extname(uploadedPhoto.name);
                         var xNewFileName = await _utilInstance.generateRandomFileName('domisili','') + xFileExt;
-                        uploadedPhoto.mv(config.uploadPath.vendor.siup + xNewFileName);
+                        uploadedPhoto.mv(config.uploadPath.vendor.domisili + xNewFileName);
         
                         joResult = {
                             status: true,
@@ -216,6 +298,47 @@ async function uploadDomisili( req, res ){
             joResult = {
                 status: false,
                 message: "Error: " + oAuthResult.data.err_msg.name
+            };
+            res.status(500).send(joResult);
+        }
+
+    }else{
+        joResult = JSON.stringify(oAuthResult);
+        res.status(500).send(joResult);
+    }
+}
+
+async function downloadDomisili( req, res ){
+    var joResult;
+    var errors = null;
+
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
+
+    if( oAuthResult.status_code == "00" ){
+        if( oAuthResult.data.status_code == "00" ){
+
+            try{
+                var xDirectoryPath = path.resolve(config.uploadPath.vendor.domisili + req.params.file_name);
+                res.download( xDirectoryPath, req.params.file_name, (err) => {
+                    if( err ){
+                        res.status(500).send({
+                            message: "Could not download the file. " + err,
+                        });
+                    }
+                } )
+            }catch( e ){
+                joResult = {
+                    status: false,
+                    message: "Error download file: " + e
+                };
+                res.status(500).send(joResult);
+            }
+
+        }else{
+            console.log(JSON.stringify(oAuthResult));
+            joResult = {
+                status: false,
+                message: "Error 4: " + oAuthResult.data.err_msg.name
             };
             res.status(500).send(joResult);
         }
@@ -249,7 +372,7 @@ async function uploadTDP( req, res ){
                         let uploadedPhoto = req.files.file;
                         var xFileExt = path.extname(uploadedPhoto.name);
                         var xNewFileName = await _utilInstance.generateRandomFileName('tdp','') + xFileExt;
-                        uploadedPhoto.mv(config.uploadPath.vendor.siup + xNewFileName);
+                        uploadedPhoto.mv(config.uploadPath.vendor.tdp + xNewFileName);
         
                         joResult = {
                             status: true,
@@ -293,6 +416,47 @@ async function uploadTDP( req, res ){
     }
 }
 
+async function downloadTDP( req, res ){
+    var joResult;
+    var errors = null;
+
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
+
+    if( oAuthResult.status_code == "00" ){
+        if( oAuthResult.data.status_code == "00" ){
+
+            try{
+                var xDirectoryPath = path.resolve(config.uploadPath.vendor.tdp + req.params.file_name);
+                res.download( xDirectoryPath, req.params.file_name, (err) => {
+                    if( err ){
+                        res.status(500).send({
+                            message: "Could not download the file. " + err,
+                        });
+                    }
+                } )
+            }catch( e ){
+                joResult = {
+                    status: false,
+                    message: "Error download file: " + e
+                };
+                res.status(500).send(joResult);
+            }
+
+        }else{
+            console.log(JSON.stringify(oAuthResult));
+            joResult = {
+                status: false,
+                message: "Error 4: " + oAuthResult.data.err_msg.name
+            };
+            res.status(500).send(joResult);
+        }
+
+    }else{
+        joResult = JSON.stringify(oAuthResult);
+        res.status(500).send(joResult);
+    }
+}
+
 async function uploadAkta( req, res ){
     var joResult;
     var errors = null;
@@ -316,7 +480,7 @@ async function uploadAkta( req, res ){
                         let uploadedPhoto = req.files.file;
                         var xFileExt = path.extname(uploadedPhoto.name);
                         var xNewFileName = await _utilInstance.generateRandomFileName('akta','') + xFileExt;
-                        uploadedPhoto.mv(config.uploadPath.vendor.siup + xNewFileName);
+                        uploadedPhoto.mv(config.uploadPath.vendor.akta + xNewFileName);
         
                         joResult = {
                             status: true,
@@ -350,6 +514,47 @@ async function uploadAkta( req, res ){
             joResult = {
                 status: false,
                 message: "Error: " + oAuthResult.data.err_msg.name
+            };
+            res.status(500).send(joResult);
+        }
+
+    }else{
+        joResult = JSON.stringify(oAuthResult);
+        res.status(500).send(joResult);
+    }
+}
+
+async function downloadAkta( req, res ){
+    var joResult;
+    var errors = null;
+
+    var oAuthResult = await _oAuthServiceInstance.verifyToken( req.headers['x-token'], req.headers['x-method'] );   
+
+    if( oAuthResult.status_code == "00" ){
+        if( oAuthResult.data.status_code == "00" ){
+
+            try{
+                var xDirectoryPath = path.resolve(config.uploadPath.vendor.akta + req.params.file_name);
+                res.download( xDirectoryPath, req.params.file_name, (err) => {
+                    if( err ){
+                        res.status(500).send({
+                            message: "Could not download the file. " + err,
+                        });
+                    }
+                } )
+            }catch( e ){
+                joResult = {
+                    status: false,
+                    message: "Error download file: " + e
+                };
+                res.status(500).send(joResult);
+            }
+
+        }else{
+            console.log(JSON.stringify(oAuthResult));
+            joResult = {
+                status: false,
+                message: "Error 4: " + oAuthResult.data.err_msg.name
             };
             res.status(500).send(joResult);
         }

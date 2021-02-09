@@ -18,7 +18,7 @@ module.exports = (app) => {
         next();
     });
 
-    // Product Category
+    // Vendor Document
     app.post( rootAPIPath + 'product_category/photo', productCategoryController.productCategory );
     // Product
     app.post( rootAPIPath + 'product/photo', productController.product );
@@ -26,10 +26,19 @@ module.exports = (app) => {
     app.post( rootAPIPath + 'vendor/logo', vendorController.logo);
 
     app.post( rootAPIPath + 'vendor/siup', vendorDocumentController.uploadSIUP);
+    app.get( rootAPIDownloadPath + 'vendor/siup/:file_name', vendorDocumentController.downloadSIUP );
+
     app.post( rootAPIPath + 'vendor/npwp', vendorDocumentController.uploadNPWP);
+    app.get( rootAPIDownloadPath + 'vendor/npwp/:file_name', vendorDocumentController.downloadNPWP );
+
     app.post( rootAPIPath + 'vendor/domisili', vendorDocumentController.uploadDomisili);
+    app.get( rootAPIDownloadPath + 'vendor/domisili/:file_name', vendorDocumentController.downloadDomisili );
+
     app.post( rootAPIPath + 'vendor/tdp', vendorDocumentController.uploadTDP);
+    app.get( rootAPIDownloadPath + 'vendor/tdp/:file_name', vendorDocumentController.downloadTDP );
+
     app.post( rootAPIPath + 'vendor/akta', vendorDocumentController.uploadAkta);
+    app.get( rootAPIDownloadPath + 'vendor/akta/:file_name', vendorDocumentController.downloadAkta );
 
     // Vendor Catalogue
     app.post( rootAPIPath + 'vendor_catalogue/brochure', vendorCatalogueController.uploadBrochure );
