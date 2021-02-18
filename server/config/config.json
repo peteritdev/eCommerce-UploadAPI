@@ -49,24 +49,24 @@
     "timezone": "Asia/Jakarta",
 
     "uploadPath": {
-      "productCategory": "/var/www/sanqua-upload-dir.com/public_html/product_categories/",
-      "product_1": "/var/www/sanqua-upload-dir.com/public_html/products/photo_1/",    
-      "product_2": "/var/www/sanqua-upload-dir.com/public_html/products/photo_2/",
-      "product_3": "/var/www/sanqua-upload-dir.com/public_html/products/photo_3/",
-      "product_4": "/var/www/sanqua-upload-dir.com/public_html/products/photo_4/",
-      "product_5": "/var/www/sanqua-upload-dir.com/public_html/products/photo_5/",
+      "productCategory": "/var/www/sqa_upload_ecatalogue/product_categories/",
+      "product_1": "/var/www/sqa_upload_ecatalogue/products/photo_1/",    
+      "product_2": "/var/www/sqa_upload_ecatalogue/products/photo_2/",
+      "product_3": "/var/www/sqa_upload_ecatalogue/products/photo_3/",
+      "product_4": "/var/www/sqa_upload_ecatalogue/products/photo_4/",
+      "product_5": "/var/www/sqa_upload_ecatalogue/products/photo_5/",
       "vendor":{
-        "logo":"/var/www/sanqua-upload-dir.com/public_html/vendor/logo/",
-        "siup": "/var/www/sanqua-upload-dir.com/public_html/vendor/siup/",
-        "npwp": "/var/www/sanqua-upload-dir.com/public_html/vendor/npwp/",
-        "domisili": "/var/www/sanqua-upload-dir.com/public_html/vendor/domisili/",
-        "tdp": "/var/www/sanqua-upload-dir.com/public_html/vendor/tdp/",
-        "akta": "/var/www/sanqua-upload-dir.com/public_html/vendor/akta/",
-        "catalogueBrochure": "/var/www/sanqua-upload-dir.com/public_html/vendor_catalogue/",
-        "quotation": "/var/www/sanqua-upload-dir.com/public_html/vendor_quotation/"
+        "logo":"/var/www/sqa_upload_ecatalogue/vendors/logo/",
+        "siup": "/var/www/sqa_upload_ecatalogue/vendors/siup/",
+        "npwp": "/var/www/sqa_upload_ecatalogue/vendors/npwp/",
+        "domisili": "/var/www/sqa_upload_ecatalogue/vendors/domisili/",
+        "tdp": "/var/www/sqa_upload_ecatalogue/vendors/tdp/",
+        "akta": "/var/www/sqa_upload_ecatalogue/vendors/akta/",
+        "catalogueBrochure": "/var/www/sqa_upload_ecatalogue/vendor_catalogues/",
+        "quotation": "/var/www/sqa_upload_ecatalogue/vendor_quotations/"
       },
       "eSanqua": {
-        "repository": "/var/www/sanqua-upload-dir.com/public_html/esanqua/repository/"
+        "repository": "/var/www/sqa_upload_ecatalogue/esanqua/repository/"
       }
     }
   },
