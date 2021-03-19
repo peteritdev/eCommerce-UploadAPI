@@ -583,7 +583,7 @@ async function uploadQuotation( req, res ){
                     res.status(200).send(joResult);
                 }else{
         
-                    let joValidateFile = await _utilInstance.imageFilter( req.files.file );
+                    let joValidateFile = await _utilInstance.attachmentFilter( req.files.file );
                     if( joValidateFile.status_code == "00" ){
                         let uploadedPhoto = req.files.file;
                         var xFileExt = path.extname(uploadedPhoto.name);
