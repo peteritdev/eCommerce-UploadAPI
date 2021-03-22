@@ -4,8 +4,8 @@ const vendorController = require('../controllers').vendor;
 const vendorDocumentController = require('../controllers').vendorDocument;
 const vendorCatalogueController = require('../controllers').vendorCatalogue;
 
-var rootAPIPath = '/api/v1/upload/';
-var rootAPIDownloadPath = '/api/v1/download/';
+var rootAPIPath = '/api/upload/v1/';
+var rootAPIDownloadPath = '/api/download/v1/';
 
 module.exports = (app) => {
     app.get(rootAPIPath, (req, res) => res.status(200).send({
